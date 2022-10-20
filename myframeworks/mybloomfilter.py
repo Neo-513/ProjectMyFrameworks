@@ -4,7 +4,7 @@ import sys
 
 class MyBitMap:
 	def __init__(self, size):
-		self._size = size  # 存储比特的位数23
+		self._size = size  # 存储比特的位数99768
 		self._bitmap = 1 << size  # 默认首位为1且不参与存储，通过默认首位移位来开辟存储空间
 
 	def set(self, bit):
