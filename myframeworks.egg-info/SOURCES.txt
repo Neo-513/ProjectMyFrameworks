@@ -1,0 +1,9 @@
+setup.py
+myframeworks/__init__.py
+myframeworks/mybloomfilter.py
+myframeworks/mycrawler.py
+myframeworks/myfileio.py
+myframeworks.egg-info/PKG-INFO
+myframeworks.egg-info/SOURCES.txt
+myframeworks.egg-info/dependency_links.txt
+myframeworks.egg-info/top_level.txt
