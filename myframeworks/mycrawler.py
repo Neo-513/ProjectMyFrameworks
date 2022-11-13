@@ -10,6 +10,11 @@ import os
 import re
 import time
 
+HEADERS = {
+	"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0"
+	" Safari/537.36 Edg/107.0.1418.42"
+}  # 请求头
+
 
 def crawl(urls, cookie=None, parser=None, attrs=None, proxy="", folder="", encoding="utf-8"):
 	"""
@@ -52,11 +57,6 @@ def get_cookie(url):
 
 
 class StaticCrawler:
-	_HEADERS = {
-		"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0"
-		".0.0 Safari/537.36 Edg/106.0.1370.42"
-	}  # 请求头
-
 	def __init__(self, params):
 		self.urls = params["urls"]
 		self.cookie = params["cookie"]
@@ -71,7 +71,7 @@ class StaticCrawler:
 		self.dic = collections.defaultdict(dict)  # 结果集字典
 
 		if self.cookie:
-			self._HEADERS["cookie"] = self.cookie  # cookie
+			HEADERS["cookie"] = self.cookie  # cookie
 		if self.parser and ".+?" in self.parser:
 			self.parser = re.compile(self.parser, re.S)  # 编译正则表达式
 		if self.folder and not os.path.exists(self.folder):
@@ -86,7 +86,7 @@ class StaticCrawler:
 
 	async def _main(self):  # 任务列表
 		connector = aiohttp.TCPConnector(ssl=False)  # 取消ssl验证
-		async with aiohttp.ClientSession(headers=self._HEADERS, connector=connector) as session:
+		async with aiohttp.ClientSession(headers=HEADERS, connector=connector) as session:
 			self.session = session  # session
 			tasks = [asyncio.ensure_future(self._fetch(url)) for url in self.urls]  # 任务列表
 			await asyncio.gather(*tasks)  # 异步执行任务列表
