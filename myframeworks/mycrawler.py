@@ -82,7 +82,7 @@ class StaticCrawler:
 		asyncio.run(self._main())  # 异步执行爬取任务列表
 
 		if not self.folder:
-			return [self.dic[url] for url in self.urls if url in self.dic]  # 按url列表顺序返回数据
+			return (self.dic[url] for url in self.urls if url in self.dic)  # 按url列表顺序返回数据
 
 	async def _main(self):  # 任务列表
 		connector = aiohttp.TCPConnector(ssl=False)  # 取消ssl验证
