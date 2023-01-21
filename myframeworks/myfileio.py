@@ -33,12 +33,12 @@ class MyCsv(MyFileIO):
 class MyJson(MyFileIO):
 	@staticmethod
 	def read(path):
-		with open(path, mode="r") as file:
+		with open(path, mode="r", encoding="utf-8") as file:
 			return json.load(file)
 
 	@staticmethod
 	def write(path, datas):
-		with open(path, mode="w") as file:
+		with open(path, mode="w", encoding="utf-8") as file:
 			json.dump(datas, file)
 
 
