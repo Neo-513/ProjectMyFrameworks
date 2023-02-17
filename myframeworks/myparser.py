@@ -3,7 +3,7 @@ def av2bv(av):
 	:param av: av号
 	:return: bv号
 	"""
-	return MyParser.bv2av(av)
+	return MyParser.av2bv(av)
 
 
 def bv2av(bv):
