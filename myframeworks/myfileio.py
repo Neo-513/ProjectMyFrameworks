@@ -5,6 +5,8 @@ import pickle
 import xlrd
 import xlwt
 
+DESKTOP = "C:/Users/Dell/Desktop/"  # 桌面地址
+
 
 class MyFileIO:
 	@staticmethod
