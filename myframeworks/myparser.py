@@ -26,8 +26,7 @@ class MyParser:
 		bv = (av ^ MyParser._XOR) + MyParser._OFFSET
 		mask = list("BV1  4 1 7  ")
 		for i, order in enumerate(MyParser._ORDERS):
-			const = len(MyParser._TABLE) ** i
-			mask[order] = MyParser._TABLE[bv // const % len(MyParser._TABLE)]
+			mask[order] = MyParser._TABLE[bv // len(MyParser._TABLE) ** i % len(MyParser._TABLE)]
 		return "".join(mask)
 
 	@staticmethod
