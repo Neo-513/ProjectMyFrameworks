@@ -1,3 +1,14 @@
+def jsn2dic(jsn):
+	"""将json字符串转为json字典
+	:param jsn: 待转换json字符串
+	:return: 转换后的json字典
+	"""
+	if isinstance(jsn, dict):
+		return jsn
+	elif isinstance(jsn, str):
+		return eval(jsn.replace("null", "None").replace("true", "True").replace("false", "False"))
+
+
 def av2bv(av):
 	"""av号转bv号
 	:param av: av号
