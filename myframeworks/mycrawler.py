@@ -99,7 +99,7 @@ class StaticCrawler:
 			response.raise_for_status()  # 判断页面连接状态
 
 			if self.folder:  # 爬取图片
-				async with await aiofiles.open(f"{self.folder.rstrip('/')}/{url.split('/')[-1]}", mode="wb") as file:
+				async with aiofiles.open(f"{self.folder.rstrip('/')}/{url.split('/')[-1]}", mode="wb") as file:
 					data = await response.read()  # 获取图片内容
 					await file.write(data)  # 写入图片文件
 			else:  # 爬取文本
