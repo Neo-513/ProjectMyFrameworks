@@ -1,3 +1,6 @@
+import time
+
+
 def jsn2dic(jsn):
 	"""将json字符串转为json字典
 	:param jsn: 待转换json字符串
@@ -7,6 +10,19 @@ def jsn2dic(jsn):
 		return jsn
 	elif isinstance(jsn, str):
 		return eval(jsn.replace("null", "None").replace("true", "True").replace("false", "False"))
+
+
+def timing(func):
+	"""统计函数执行时间
+	:param func: 待执行函数
+	:return: 装饰器函数
+	"""
+	def inner(*args):  # 内部函数
+		tictoc = time.time()
+		datas = func(*args)  # 执行函数
+		print(f"{func.__name__}():    {time.time() - tictoc}")
+		return datas
+	return inner
 
 
 def av2bv(av):
