@@ -14,7 +14,8 @@ HEADERS = {
 	"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0"
 	" Safari/537.36 Edg/110.0.1587.49"
 }  # 请求头
-PROXY = "http://127.0.0.1:17890"  # 代理
+PROXY = "http://127.0.0.1:17890"  # 代理端口
+DESKTOP = "C:/Users/Dell/Desktop/"  # 桌面地址
 
 
 def crawl(urls, cookie=None, parser=None, attrs=None, proxy="", folder="", encoding="utf-8"):
