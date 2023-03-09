@@ -1,3 +1,5 @@
+from tkinter import Label, StringVar, Tk
+import pyautogui
 import time
 
 
@@ -23,6 +25,27 @@ def timing(func):
 		print(f"{func.__name__}():    {time.time() - tictoc}")
 		return datas
 	return inner
+
+
+def get_mouse_position():
+	"""获取并展示鼠标当前位置
+	"""
+	def get_position():  # 获取当前位置
+		x, y = pyautogui.position()  # 获取左边
+		position.set(f"{x:04},{y:03}")  # 展示当前位置
+		tk.after(1, get_position)  # 1毫秒后继续获取当前位置
+
+	tk = Tk()  # 创建主窗口
+	tk.overrideredirect(True)  # 隐藏标题栏
+	tk.geometry("+950+0")  # 设置位置
+	tk.resizable(0, 0)  # 禁止拉伸
+	tk.attributes("-topmost", True)  # 设置保持前端显示
+
+	position = StringVar()  # 当前位置
+	Label(tk, textvariable=position).grid(row=0, column=1)  # 标签
+
+	get_position()  # 获取当前位置
+	tk.mainloop()  # 主循环
 
 
 def av2bv(av):
