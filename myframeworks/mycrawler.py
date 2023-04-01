@@ -12,7 +12,7 @@ import time
 
 HEADERS = {
 	"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0"
-	" Safari/537.36 Edg/111.0.1661.51"
+	" Safari/537.36 Edg/111.0.1661.62"
 }  # 请求头
 PROXY = "http://127.0.0.1:17890"  # 代理端口
 DESKTOP = "C:/Users/Dell/Desktop/"  # 桌面地址
